@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Detect Image</h1>
+        </header>
+        <nav>
+            <button onclick="location.href='/'">Home</button>
+        </nav>
+        <main>
+            <div class="upload-section">
+                <form id="image-form" action="/detect_image" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" accept="image/*">
+                    <input type="submit" value="Upload Image">
+                </form>
+            </div>
+            <div class="result-section">
+                <img id="detected-image" src="#" alt="Detected Image" style="display: none;">
+            </div>
+        </main>
+        <aside>
+            <div id="response-box"></div>
+        </aside>
+        <footer>
+            <p>© 2024 Object Detection</p>
+        </footer>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

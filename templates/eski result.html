@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Detection Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+      window.onload = function() {
+        fetch('/send_telegram', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            original_filename: '{{ original_filename }}',
+            detected_filename: '{{ detected_filename }}',
+            detected_weapons: {{ detected_weapons|tojson }}
+          })
+        }).then(response => response.json()).then(data => {
+          console.log(data.message);
+        }).catch(error => {
+          console.error('Error:', error);
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Detection Results</h1>
+      <div class="image-container">
+        <div>
+          <h2>Original Image</h2>
+          <img src="{{ url_for('uploaded_file', filename=original_filename) }}" alt="Original Image">
+        </div>
+        <div>
+          <h2>Detected Image</h2>
+          <img src="{{ url_for('uploaded_file', filename=detected_filename) }}" alt="Detected Image">
+        </div>
+      </div>
+      <h2>Detected Weapons</h2>
+      <ul>
+        {% for weapon in detected_weapons %}
+          <li>{{ weapon }}</li>
+        {% endfor %}
+      </ul>
+      <a href="/"><button>Go Back</button></a>
+    </div>
+    <footer>
+      <p>Object Detection Demo © 2024</p>
+    </footer>
+  </body>
+</html>
