@@ -23,5 +23,6 @@ This project demonstrates a comprehensive solution for detecting weapons, such a
 3. **Notifications**: Alerts are sent through Telegram with detection results and actionable suggestions.  
 4. **Real-Time Monitoring**: The system provides live feedback for webcam streams.  
 
-## Dataset
-https://universe.roboflow.com/joao-assalim-xmovq/weapon-2/dataset/2
+## Acknowledgments  
+This project is based on the **Weapons and Knives Detector with YOLOv8** model by [João Assalim](https://github.com/JoaoAssalim/Weapons-and-Knives-Detector-with-YOLOv8).  
+I have utilized this model as a foundation and made modifications to adapt it for my use case, including integrating real-time notifications, a web interface, and AI-driven recommendations.
